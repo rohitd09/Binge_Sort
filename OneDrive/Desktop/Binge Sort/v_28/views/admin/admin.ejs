@@ -1,0 +1,201 @@
+<%- include('./../partials/header') %>
+
+<span style="font-size:30px;cursor:pointer" class="btn btn-dark" onclick="openNav()">Open Menu &#9776;</span>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn hidden-lg" onclick="closeSmallNav()">&times;</a>
+  <a href="/admin"><i class="fa fa-bar-chart fa-lg"></i> Dashboard</a>
+  <a href="/admin/add_data" style="color: #f1f1f1;"><i class="fa fa-plus fa-lg"></i> Add Show</a>
+  <a href="/admin_edit"><i class="fa fa-pencil-square-o fa-lg"></i> Edit Show</a>
+</div>
+
+<div class="container addShowForm">
+  <div class="row row-content">
+      <div class="col-12 col-md-8 offset-lg-2">
+          <h2><span class="fa fa-plus-circle fa-lg"></span> Insert New Data</h2>
+      </div>
+      <div class="card col-12 col-lg-8 offset-lg-2">
+          <form action="/admin/add_data" method="POST" enctype="multipart/form-data">
+              <div class="form-group row mt-3">
+                  <label for="name" class="col-md-2 col-form-label"><strong>Name</strong></label>
+                  <div class="col-md-10">
+                      <input type="text" class="form-control" name="show_name" placeholder="Example: Sacred Games" required>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="popularity" class="col-md-2 col-form-label"><strong>Popularity</strong></label>
+                  <div class="col-md-10">
+                      <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" id="New Released" name="popularity" value="New Released" checked>New Released
+                        </label>
+                      </div>
+                      <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" id="General" name="popularity" value="General">General
+                        </label>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-group row">
+                <label for="genre" class="col-md-2 col-form-label"><strong>Genre</strong></label>
+                <div class="col-md-10">
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Action">Action and Adventure
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Comedy">Comedy
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Romance">Romance
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Fantasy">Fantasy
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Horror">Horror
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Mystery">Mystery
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Drama">Drama
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Sci-fi">Sci-fi
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Military">Military
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Documentary">Documentary
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Parodies">Parodies
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Anime">Anime
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="History">History
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Thriller">Thriller
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Political">Political
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Animation">Animation
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Crime">Crime
+                      </label>
+                    </div>
+                    <div class="form-check-inline">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="genre" value="Reality Show">Reality Show
+                      </label>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label for="number_of_seasons" class="col-md-2 col-form-label"><strong>Number of Seasons</strong></label>
+                  <div class="col-md-10">
+                      <input type="number" class="form-control" placeholder="Enter Number of Seasons" name="number_of_seasons" required>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="number_of_episodes" class="col-md-2 col-form-label"><strong>Number of Episodes</strong></label>
+                  <div class="col-md-10">
+                      <input type="number" class="form-control" placeholder="Enter Number of Episodes" name="number_of_episodes" required>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="source" class="col-md-2 col-form-label"><strong>Source</strong></label>
+                  <div class="col-md-10">
+                      <input type="text" class="form-control" name="source" placeholder="Example: Netflix" required>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="synopsis" class="col-md-2 col-form-label"><strong>Synopsis</strong></label>
+                  <div class="col-md-10">
+                      <textarea class="form-control" id="Synopsis" name="synopsis" rows="4" required></textarea>
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="image" class="col-md-2 col-form-label" required><strong>Image</strong></label>
+                  <div class="col-md-10">
+                      <input type="file" class="form-control" name="image">
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <div class="offset-md-2 col-md-10">
+                      <button type="submit" class="btn btn-primary"><strong>Insert</strong></button>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  document.querySelector("body").classList.remove("body_bg");
+  document.getElementById("mySidenav").style.width = "250px";
+  document.querySelector(".alert").style.marginLeft = "12.5%";
+  document.querySelector(".closebtn").style.display = "none";
+
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav(){
+    var w_size = document.body.clientWidth;
+
+    if(w_size < 1111){
+      document.getElementById("mySidenav").style.width = "0";
+      document.querySelector(".closebtn").style.display = "initial";
+    } else if(w_size >= 1111) {
+      openNav();
+    }
+  }
+
+  function closeSmallNav(){
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+
+</script>
+<%- include('./../partials/admin_footer') %>

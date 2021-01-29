@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Binge Sort</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+  </head>
+  <body class="body_bg" onresize="closeNav()">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0a0a0a;">
+      <a class="navbar-brand" href="/">Binge Sort</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav my-0 mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/mylist"><i class="fa fa-list"></i> MyList</a>
+          </li>
+          <% if(currentUser) { %>
+            <% if(currentUser.role == "admin") { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin"><i class="fa fa-user-secret fa-lg" title="Align Justify"></i> Admin Panel</a>
+              </li>
+            <% } %>
+          <% } %>
+          <li class="nav-item">
+            <a class="nav-link" href="/all_show"><i class="fa fa-television" title="Align Justify"></i> All Show</a>
+          </li>
+          <form action="/search_show" method="POST" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="show_name" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </ul>
+
+        <% if(!currentUser) { %>
+          <div class="nav-item my-0 mr-1">
+            <a class="nav-link" href="/login"><i class="fa fa-sign-in fa-lg"></i> Login</a>
+          </div>
+          <div class="nav-item mr-0">
+            <a class="nav-link" href="/register"><i class="fa fa-user-plus fa-lg"></i> Sign Up</a>
+          </div>
+        <% } else { %>
+          <div class="nav-item my-0 mr-1">
+            <a class="nav-link" href="#"><i class="fa fa-user fa-lg"></i> Signed in As <%= currentUser.username %></a>
+          </div>
+          <div class="nav-item mr-0">
+            <a class="nav-link" href="/logout">Logout <i class="fa fa-sign-in fa-lg"></i></a>
+          </div>
+        <% } %>
+      </div>
+    </nav>
+
+
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <%= error %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <%= success %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </div>
+        <% } %>
+    </div>

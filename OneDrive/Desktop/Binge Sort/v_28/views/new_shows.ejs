@@ -1,0 +1,48 @@
+<%- include("./partials/header") %>
+
+<div class="jumbotron jumbotron-fluid" style="background-color: #111112; color: white;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-7 col-md-12">
+        <h1 class="display-4"><i class="fa fa-television" title="Align Justify"></i> All Newly Released Shows</h1>
+      </div>
+     </div>
+    <p class="lead">Make your own customised database</p>
+  </div>
+</div>
+
+
+  <div class="card">
+    <div class="container">
+      <div class="card-header">
+        <% var flag = 0 %>
+        <% for(i = 65; i <= 90; i++){ %>
+          <div class="row">
+            <% television.forEach(function(tv) { %>
+              <% if(tv.show_name.charCodeAt(0) == i || tv.show_name.charCodeAt(0) == i + 32){ %>
+                <% if(flag != i){ %>
+                  <h1 class="col-12"><%= String.fromCharCode(i) %></h1>
+                  <% flag = i %>
+                <% } %>
+                <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                  <a href="/show/<%= tv._id %>">
+                    <div class="card-deck">
+                      <div class="card">
+                        <img height="155px" src="./uploads/<%= tv.image %>" class="card-img-top" alt="<%= tv.show_name %> image">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= tv.show_name %></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              <% } %>
+            <% }) %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+
+<%- include("./partials/footer") %>

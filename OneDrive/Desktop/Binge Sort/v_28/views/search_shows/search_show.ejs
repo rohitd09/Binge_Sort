@@ -1,0 +1,41 @@
+<%- include("./../partials/header") %>
+
+<div class="jumbotron jumbotron-fluid" style="background-color: #111112; color: white;">
+  <div class="container">
+    <h1 class="display-7"><i class="fa fa-desktop" title="Align Justify"></i> Displaying shows with "<%= show_name %>"</h1>
+  </div>
+</div>
+
+<div class="card">
+  <div class="container">
+    <div class="card-header">
+      <div class="container">
+        <div class="row">
+          <% var flag = 0 %>
+          <% if(television){ %>
+            <% television.forEach(function(tv){ %>
+              <% flag = 1 %>
+              <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                <a href="/show/<%= tv._id %>">
+                  <div class="card-deck">
+                    <div class="card">
+                      <img height="155px" src="./uploads/<%= tv.image %>" class="card-img-top" alt="<%= tv.show_name %> image">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= tv.show_name %></h5>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            <% }); %>
+          <% } %>
+          <% if(flag != 1){ %>
+              <h1 class="mb-5">Oops! Can't seem to find the show you are looking for!</h1>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("./../partials/footer") %>

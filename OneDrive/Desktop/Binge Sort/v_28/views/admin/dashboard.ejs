@@ -1,0 +1,115 @@
+<%- include("./../partials/header") %>
+
+<span style="font-size:30px;cursor:pointer; position: absolute;" class="btn btn-dark" onclick="openNav()">Open Menu &#9776;</span>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn hidden-lg" onclick="closeSmallNav()">&times;</a>
+  <a href="/admin" style="color: #f1f1f1;"><i class="fa fa-bar-chart fa-lg"></i> Dashboard</a>
+  <a href="/admin/add_data"><i class="fa fa-plus fa-lg"></i> Add Show</a>
+  <a href="/admin_edit"><i class="fa fa-pencil-square-o fa-lg"></i> Edit Show</a>
+</div>
+
+<div class="jumbotron jumbotron-fluid" style="background-color: #111112; color: white;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <br>
+        <h1 class="display-4"><i class="fa fa-bar-chart" title="Align Justify"></i> Dashboard</h1>
+        <p class="lead">Admin Dashboard and Content Summary</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-4 offset-md-2 mb-1">
+      <div class="card">
+          <div class="card-header">
+            <center><h5><span class="fa fa-users fa-lg"></span> Number of Registered Users</h5></center>
+          </div>
+          <div class="card-body">
+            <center class="card-text"><strong><%= numberOfUsers %></strong></center>
+          </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 offset-md-1">
+      <div class="card">
+        <div class="card-header">
+          <center><h5><span class="fa fa-television fa-lg"></span> Number of TV Shows</h5></center>
+        </div>
+        <div class="card-body">
+          <center class="card-text"><strong><%= numberOfShows %></strong></center>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12 col-md-9 offset-md-2 mb-1">
+      <h5>TV Show Details</h5>
+      <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Show Name</th>
+          <th scope="col">Popularity</th>
+          <th scope="col">Total Score</th>
+          <th scope="col">Number of People Scored</th>
+          <th scope="col">Average Score</th>
+          <th scope="col">Number of People Visited</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% var i = 0 %>
+        <% television.forEach(function(tv){ %>
+          <% i += 1 %>
+          <tr>
+            <th scope="row"><%= i %></th>
+            <td><%= tv.show_name %></td>
+            <td><%= tv.popularity %></td>
+            <td><%= tv.Total_Score %></td>
+            <td><%= tv.Users_Scored %></td>
+            <td><% if((tv.Avg_Score) > 0){ %>
+              <%= (tv.Avg_Score.toFixed(2)) %>
+            <% } else { %>
+              0
+            <% } %></td>
+            <td><%= tv.visited_number %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  document.querySelector("body").classList.remove("body_bg");
+  document.getElementById("mySidenav").style.width = "250px";
+  document.querySelector(".alert").style.marginLeft = "12.5%";
+  document.querySelector(".closebtn").style.display = "none";
+
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav(){
+    var w_size = document.body.clientWidth;
+
+    if(w_size < 1111){
+      document.getElementById("mySidenav").style.width = "0";
+      document.querySelector(".closebtn").style.display = "initial";
+    } else if(w_size >= 1111) {
+      openNav();
+    }
+  }
+
+  function closeSmallNav(){
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+
+</script>
+
+<%- include('./../partials/admin_footer') %>

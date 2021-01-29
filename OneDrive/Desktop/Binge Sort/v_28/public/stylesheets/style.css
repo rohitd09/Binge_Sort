@@ -1,0 +1,302 @@
+/* ======================================================================
+Nav Bar
+====================================================================== */
+nav #navbarSupportedContent .nav-item .nav-link{
+  color: #fff;
+}
+
+nav #navbarSupportedContent .nav-item .nav-link:hover{
+  border-bottom: 2px solid #f05746;
+}
+
+/* ======================================================================
+Body
+====================================================================== */
+.body_bg{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:sans-serif;
+    background: url('https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/812140/0a797f1ca3b61616fed90bf993ea08c7a043d799.jpg');
+    background-size:cover;
+    background-position: center;
+}
+
+.alert{
+    margin-top: 1.5%;
+}
+
+/* ========================================================================
+Admin Page
+======================================================================== */
+.sidenav {
+  margin-top: 55px;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #cfdee3;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.addShowForm{
+  margin-top: 2.0%;
+}
+
+.Hidden{
+  visibility: hidden;
+}
+
+/* ========================================================================
+Password Reset
+======================================================================== */
+.fa-passwd-reset > .fa-lock {
+  font-size: 2.8rem;
+  padding-top: 28px;
+  padding-left: 24px;
+}.fa-undo{
+  font-size: 5.4rem;
+}
+
+
+/* =======================================================================
+Show Page
+======================================================================= */
+.dl1{
+  display: block;
+}
+
+.status_update{
+  display: block;
+}
+
+pre{
+  white-space: pre-wrap;
+  font-size: 16px;
+  font-family: Arial;
+}
+/* ======================================================================
+Landing Page
+====================================================================== */
+
+@media screen and (max-width: 560.9px){
+  .bg_wood{
+      height: 380px;
+      width: 100%;
+      margin-top: .5%;
+      position: absolute;
+      z-index: -1;
+  }
+
+  .tv_image{
+      height: 320px;
+      width:80%;
+      position: absolute;
+      z-index: -1;
+      margin-top: 4.25%;
+      left: 12%;
+  }
+
+  .landing-tab{
+      margin-top: 7.5%;
+  }
+
+  .carousel{
+      margin: 6.1% auto auto 11.0%;
+      width: 82%;
+      height: 250px;
+  }
+
+  .carousel-control-prev{
+      left: -15.5%;
+  }
+
+
+  .carousel-control-next{
+      right: -15.5%;
+  }
+}
+
+@media screen and (max-width: 599.9px){
+  .bg_wood{
+      height: 420px;
+      width: 94%;
+      margin-top: .5%;
+      position: absolute;
+      z-index: -1;
+  }
+
+  .tv_image{
+      height: 380px;
+      width:80%;
+      position: absolute;
+      z-index: -1;
+      margin-top: 4.25%;
+      left: 10%;
+  }
+
+  .landing-tab{
+      margin-top: 7.5%;
+  }
+
+  .carousel{
+      margin: 6.1% auto auto 9.3%;
+      width: 81.5%;
+      height: 270px;
+  }
+
+  .carousel-control-prev{
+    left: -15.5%;
+}
+
+
+  .carousel-control-next{
+      right: -15.5%;
+  }
+}
+
+@media screen and (min-width: 600px){
+  .bg_wood{
+      height: 480px;
+      width: 145%;
+      margin-top: .5%;
+      position: absolute;
+      z-index: -1;
+  }
+
+  .tv_image{
+      height: 420px;
+      width:100%;
+      position: absolute;
+      z-index: -1;
+      margin-top: 4.25%;
+      left: 27%;
+  }
+
+  .landing-tab{
+      margin-top: 7.5%;
+  }
+
+  .carousel{
+      margin: 6.1% auto auto 28.3%;
+      width: 100%;
+  }
+
+  .carousel-control-prev{
+    left: -17.5%;
+}
+
+
+  .carousel-control-next{
+      right: -17.5%;
+  }
+}
+
+.tab-content{
+  background-color: #fff;
+}
+
+/* ======================================================================
+Show Page
+====================================================================== */
+
+.left_side{
+  margin-top: 1%;
+}
+.right_side{
+  margin-top: 1%;
+}
+select{
+  font-weight: bold;
+  font-size: 17px;
+}
+
+/* =========================================================================
+mylist
+========================================================================= */
+
+.my_list_bg{
+  background-color: #e4e7ed;
+}
+
+.my_list_button{
+  margin-bottom: 25px;
+}
+
+/* =========================================================================
+Forgot password
+========================================================================= */
+
+.forgot_password{
+  margin-top: 5%;
+}
+
+/* ======================================================================
+Login and Register Page
+====================================================================== */
+
+.login{
+  background-color: black;
+  border-radius: 15px;
+  color: white;
+  padding-top: 40px;
+  padding-bottom: 15px;
+}
+
+.hr-login{
+  background-color: green;
+  height:3px;
+}
+
+.input-fa{
+  padding-right:5px;
+  padding-top:2px;
+}
+/* ======================================================================
+Footer Page
+====================================================================== */
+footer {
+  padding: 7% 15%;
+  background-color: #080707;
+  color: white;
+  width: 100%;
+}
+
+.footer-anchor {
+  margin: 20px 10px;
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  padding-top: 10px;
+}
+
+.center{
+  text-align: center;
+}

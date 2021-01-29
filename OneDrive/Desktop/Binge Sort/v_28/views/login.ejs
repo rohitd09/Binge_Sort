@@ -1,0 +1,56 @@
+<%- include('./partials/header') %>
+
+<div class="row">
+  <div class="col-sm-8 col-md-6 col-lg-4 offset-sm-2 offset-md-3 offset-lg-4">
+    <div class="container login">
+      <div class="container">
+        <center>
+          <i class="fa fa-user-o fa-lg fa-5x"></i>
+          <h1 style="padding-top: 10px;">Login Here</h1>
+        </center>
+        <form action="/login" method="POST">
+          <div class="container">
+            <hr class="hr-login">
+            <div class="col">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa-lg fa-2x input-fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="username" placeholder="Email Address" required>
+              </div>
+            </div>
+            <div class="col mt-2">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-key fa-lg fa-2x input-fa" aria-hidden="true"></i></span>
+                <input type="password" name="password" value="" placeholder="Password" class="form-control" required />
+              </div>
+            </div>  
+          </div>
+          <div class="row">
+            <div class="col col-sm-4 mt-4 offset-sm-1">
+              <button type="submit" class="btn btn-danger btn-block" value="Login"><strong>Login
+            </div>
+            <div class="col -sm-7 mt-4">
+              <a href="/register">Dont have an account?</a>
+              <br>
+              <a href="/forgot_password">Forgot Password</a>
+            </div>
+          </div>
+          <br>
+          <div class="col-sm-10 offset-sm-1">
+            <center>- OR -</center>
+            <br>
+            <a href="/facebook" class="btn btn-block btn-primary">
+              <i class="fa fa-facebook-square" aria-hidden="true"></i>
+              Sign Up using Facebook
+            </a>
+            <a href="/google" class="btn btn-block btn-danger">
+              <i class="fa fa-google-plus" aria-hidden="true"></i>
+              Sign Up using Google+
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./partials/footer') %>

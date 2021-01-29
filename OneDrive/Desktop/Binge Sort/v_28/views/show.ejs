@@ -1,0 +1,98 @@
+<%- include('./partials/header') %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-xs-12">
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h1 class="card-title"><%= television.show_name %></h1>
+        </div>
+        <img src="/uploads/<%= television.image %>" class="card-img-top" alt="<%= television.show_name %>'s Image'">
+        <div class="card-body">
+          <p class="card-text"><strong>Popularity:</strong> <%= television.popularity %></p>
+          <p class="card-text"><strong>Average User Score:</strong>
+             <% if(television.Total_Score / television.Users_Scored > 0){ %>
+               <%= television.Avg_Score.toFixed(2) %> / 10
+             <% } else { %>
+                  0 / 10
+             <% } %>
+           </p>
+          <p class="card-text"><strong>Source:</strong> <%= television.source %></p>
+          <p class="card-text"><strong>Genre: <%= television.genre %></strong></p>
+          <p class="card-text"><strong>Number of Seasons: <%= television.Number_of_Seasons %></strong></p>
+          <p class="card-text"><strong>Number of Episodes: <%= television.Number_of_Episodes %></strong></p>
+          <h5 class="card-text"><strong>Synopsis</strong></h5>
+          <pre class="card-text"><%= television.synopsis %></pre>
+          <% if(flag == 0){ %>
+            <form action="/show/<%= television._id %>?_method=PUT" method="POST">
+              <input type="hidden" value="<%= television._id %>" name="television_id">
+              <input type="submit" class="btn btn-success" value="Add To My List">
+            </form>
+          <% } else if(flag == 1){ %>
+            <form action="/show/<%= television._id %>/update?_method=PUT" method="POST">
+              <input type="hidden" value="<%= television._id %>" name="television_id">
+              <div class="row">
+                <div class="form-group col-sm-auto">
+                  <strong>Watch Status: </strong>
+                </div>
+                <div class="form-group col-sm-2">
+                  <select class="dl1 form-group" name="status">
+                    <option value="Plan To Watch">Plan To Watch</option>
+                    <option value="Watching">Watching</option>
+                    <option value="Completed">Completed</option>
+                    <option value="On Hold">On Hold</option>
+                    <option value="Dropped">Dropped</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-auto">
+                  <strong>Episode Watched: </strong>
+                </div>
+                <div class="form-group col-sm-2">
+                  <input type="number" name="episodes_watched" value="<%= episodes_watched %>" min="0" <% if(television.Number_of_Episodes > 0){ %>
+                      max="<%= television.Number_of_Episodes %>"
+                  <% } %>>
+                  <% if(television.Number_of_Episodes > 0){ %>
+                    <strong> / <%= television.Number_of_Episodes %></strong>
+                  <% } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-auto">
+                  <strong>Score: </strong>
+                </div>
+                <div class="form-group col-sm-2">
+                  <select class="dl1" name="score">
+                      <option value="0" <% if(score == 0){ %> selected <% } %>>Unrated</option>
+                      <option value="1" <% if(score == 1){ %> selected <% } %>>1 - Appaling</option>
+                      <option value="2" <% if(score == 2){ %> selected <% } %>>2 - Extremely Bad</option>
+                      <option value="3" <% if(score == 3){ %> selected <% } %>>3 - Very Bad</option>
+                      <option value="4" <% if(score == 4){ %> selected <% } %>>4 - Bad</option>
+                      <option value="5" <% if(score == 5){ %> selected <% } %>>5 - Average</option>
+                      <option value="6" <% if(score == 6){ %> selected <% } %>>6 - Fine</option>
+                      <option value="7" <% if(score == 7){ %> selected <% } %>>7 - Good</option>
+                      <option value="8" <% if(score == 8){ %> selected <% } %>>8 - Very Good</option>
+                      <option value="9" <% if(score == 9){ %> selected <% } %>>9 - Great</option>
+                      <option value="10" <% if(score == 10){ %> selected <% } %>>10 - Masterpiece</option>
+                  </select>
+                </div>
+              </div>
+              <br>
+              <div class="btn-group">
+                <div class="form-group col-xs-4">
+                  <input type="submit" class="status_update btn btn-success" value="Submit Changes">
+                </div>
+              </form>
+              <form action="/show/<%= television._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="show_delete btn btn-danger ml-5" name="button">Remove Show List</button>
+              </form>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include('./partials/footer') %>

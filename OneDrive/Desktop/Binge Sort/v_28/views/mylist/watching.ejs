@@ -1,0 +1,54 @@
+<%- include('./../partials/header') %>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><i class="fa fa-align-justify fa-lg"></i>  My Binge List</h1>
+    <p class="lead">My Watching List</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <a href="/mylist" class="btn btn-primary  my_list_button btn-lg btn-block"><strong><i class="fa fa-clock-o fa-lg"></i> Plan To Watch</strong></a>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <a href="/mylist/watching" class="btn btn-primary  my_list_button btn-lg btn-block"><strong><i class="fa fa-television fa-lg"></i> Watching</strong></a>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <a href="/mylist/on_hold" class="btn btn-primary  my_list_button btn-lg btn-block"><strong><i class="fa fa-pause fa-lg"></i> On Hold</strong></a>
+        </div>
+        <div class="col-xs-12 col-sm-4 offset-md-2">
+          <a href="/mylist/dropped" class="btn btn-primary  my_list_button btn-lg btn-block"><strong><i class="fa fa-ban fa-lg"></i> Dropped</strong></a>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <a href="/mylist/completed" class="btn btn-primary  my_list_button btn-lg btn-block"><strong><i class="fa fa-check fa-lg"></i> Completed</strong></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-header">
+    <div class="container my_list_bg">
+      <div class="row">
+        <% television_list.forEach(function(tv){ %>
+          <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+          <a href="/show/<%= tv.id %>">
+            <div class="card-deck">
+              <div class="card">
+                <img height="155px" src="./../uploads/<%= tv.image %>" class="card-img-top" alt="<%= tv.show_name %> image">
+                <div class="card-body">
+                  <h5 class="card-title"><%= tv.show_name %></h5>
+                </div>
+              </div>
+            </div>
+            </a>
+         </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./../partials/footer') %>

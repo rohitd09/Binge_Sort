@@ -1,0 +1,143 @@
+<%- include('./partials/header') %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-12  col-xs-4 col-sm-8">
+			<img src="bg_wood.png" alt="bg_wood" class="bg_wood">
+			<img src="tv_image.png" alt="tv_image" class="tv_image">
+			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  			<div class="carousel-inner">
+    			<div class="carousel-item active">
+      			<img src="Netflix.png" class="d-block w-100" alt="..." height="395px">
+    			</div>
+    			<div class="carousel-item">
+      			<img src="Disney.png" class="d-block w-100" alt="..." height="395px">
+    			</div>
+    			<div class="carousel-item">
+      			<img src="Amazon_Prime.png" class="d-block w-100" alt="..." height="395px">
+    			</div>
+  			</div>
+  			<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    			<span class="sr-only">Previous</span>
+  			</a>
+  			<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+    			<span class="sr-only">Next</span>
+  			</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row row-content align-items-center landing-tab">
+	<div class="col col-sm-10  offset-sm-1">
+		<div class="row row-content align-items-center">
+            <div class="col col-sm col-md">
+							<div class="card">
+					 		 	<div class="card-header col-md-12">
+
+		                <ul class="nav nav-tabs">
+		                    <li class="nav-item" >
+		                      <a class="nav-link active" href="#NewReleases" role="tab" data-toggle="tab"><strong>New Releases</strong></a>
+		                    </li>
+		                    <li class="nav-item">
+		                      <a class="nav-link" href="#MostPopular"role="tab" data-toggle="tab"><strong>Most Popular</strong></a>
+		                    </li>
+												<li class="nav-item">
+		                      <a class="nav-link" href="#Trending" role="tab" data-toggle="tab"><strong>Trending</strong></a>
+		                    </li>
+		                </ul>
+
+										<div class="card-body">
+			                <div class="tab-content">
+
+												<div role="tabpanel" class="tab-pane fade" id="MostPopular">
+														<div class="d-sm-block">
+															<div class="container">
+																<div class="row">
+																	<% television.forEach(function(tv) { %>
+																		<% if(tv.popularity == "Most Popular"){ %>
+																				<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+																				<a href="/show/<%= tv._id %>">
+																					<div class="card-deck">
+																						<div class="card">
+																							<img height="155px" src="./uploads/<%= tv.image %>" class="card-img-top" alt="<%= tv.show_name %> image">
+																							<div class="card-body">
+																								<h5 class="card-title"><%= tv.show_name %></h5>
+																							</div>
+																						</div>
+																					</div>
+																				</a>
+																			</div>
+																		<% } %>
+																	<% }) %>
+																</div>
+															</div>
+														</div>
+													</div>
+
+			                    <div role="tabpanel" class="tab-pane fade" id="Trending">
+			                        <div class="d-sm-block">
+																<div class="container">
+																	<div class="row">
+																		<% television.forEach(function(tv) { %>
+																			<% if(tv.popularity == "Trending"){ %>
+																					<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+																					<a href="/show/<%= tv._id %>">
+																						<div class="card-deck">
+					  																	<div class="card">
+					    																	<img height="155px" src="./uploads/<%= tv.image %>" class="card-img-top" alt="<%= tv.show_name %> image">
+					    																	<div class="card-body">
+					      																	<h5 class="card-title"><%= tv.show_name %></h5>
+					    																	</div>
+					  																	</div>
+																						</div>
+																					</a>
+																				</div>
+																			<% } %>
+																		<% }) %>
+																	</div>
+																</div>
+			                        </div>
+			                    </div>
+
+													<div role="tabpanel" class="tab-pane fade show active" id="NewReleases">
+															<div class="d-sm-block">
+																<div class="container">
+																	<div class="row">
+																		<% var i = 0 %>
+																		<% television.forEach(function(tv) { %>
+																			<% if(i < 8 && tv.popularity == "New Released"){ %>
+																				<% i += 1 %>
+																					<div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+																					<a href="/show/<%= tv._id %>">
+																						<div class="card-deck">
+						  																<div class="card">
+						    																<img height="155px" src="./uploads/<%= tv.image %>" class="card-img-top" alt="<%= tv.show_name %> image">
+						    																<div class="card-body">
+						      																<h5 class="card-title"><%= tv.show_name %></h5>
+						    																</div>
+						  																</div>
+																						</div>
+																					</a>
+																				</div>
+																			<% } %>
+																		<% }) %>
+																	</div>
+																	<div class="row">
+																		<a href="/new_shows" class="offset-md-9 offset-lg-10">More Streaming Shows</a>
+																	</div>
+																</div>
+															</div>
+				                    </div>
+			                    </div>
+			                  </div>
+										</div>
+								</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include('./partials/footer') %>

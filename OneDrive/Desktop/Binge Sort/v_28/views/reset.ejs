@@ -1,0 +1,44 @@
+<%- include ("./partials/header") %>
+
+<div class="row">
+  <div class="col-sm-4 offset-sm-4 mt-5"> 
+    <div class="card">
+      <div class="card-header">
+        <center>
+          <span class="fa-passwd-reset fa-stack">
+            <i class="fa fa-undo fa-stack-2x"></i>
+            <i class="fa fa-lock fa-stack-1x"></i>
+          </span>
+          <h1 style="padding-top:48px;">Set New Password</h1>
+          <p>You can set your password here.</p>
+        </center>
+        <form action="/reset/<%= token %>" method="POST">
+          <div class="container">
+            <div class="col">
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-key fa-lg fa-2x" aria-hidden="true" style="padding-right:5px; padding-top:2px;"></i></span>
+                <input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
+              </div>
+            </div>
+            <div class="col mt-2">
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-key fa-lg fa-2x" aria-hidden="true" style="padding-right:5px; padding-top:2px;"></i></span>
+                <input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control"/>
+              </div>
+            </div>  
+          </div> 
+          <div class="col-sm-10 offset-sm-1 mt-4">
+            <button type="submit" class="btn btn-lg btn-primary btn-block"><strong>Update Password</strong></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<script type="text/javascript">
+  document.querySelector("body").classList.remove("body_bg");
+</script>
+
+<%- include ("./partials/footer") %>
